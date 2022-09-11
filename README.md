@@ -1,0 +1,1 @@
+# Emoji as Favicon
