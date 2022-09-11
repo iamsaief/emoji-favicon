@@ -844,8 +844,15 @@ fetchJSON().then(function (data) {
   var emojis = data.map(function (item) {
     return item.character;
   }).slice(0, 100);
-  console.log(emojis);
+  renderEmojiList(emojis);
 });
+
+var renderEmojiList = function renderEmojiList(emojis) {
+  var emojiListWrapper = document.querySelector('.emoji-list-wrapper'); // const emoji = emojis.trim();
+
+  console.log(emojis.join(''));
+  emojiListWrapper.innerHTML = "\n        <div>".concat(emojis.join(''), "</div>\n    ");
+};
 },{"dotenv":"node_modules/dotenv/lib/main.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';

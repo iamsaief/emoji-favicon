@@ -12,5 +12,17 @@ const fetchJSON = async () => {
 fetchJSON().then((data) => {
 	const emojis = data.map((item) => item.character).slice(0, 100);
 
-	console.log(emojis);
+	renderEmojiList(emojis);
 });
+
+const renderEmojiList = (emojis) => {
+	const emojiListWrapper = document.querySelector('.emoji-list-wrapper');
+
+	// const emoji = emojis.trim();
+
+	console.log(emojis.join(''));
+
+	emojiListWrapper.innerHTML = `
+        <div>${emojis.join('')}</div>
+    `;
+};
