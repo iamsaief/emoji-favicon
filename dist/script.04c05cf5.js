@@ -28200,12 +28200,12 @@ window.addEventListener('DOMContentLoaded', function () {
   var buttons = document.querySelectorAll(".emoji-list span.emoji"); // console.log(buttons);
 
   buttons.forEach(function (button) {
-    button.addEventListener('click', function () {
+    button.addEventListener('click', function (e) {
       var newFavicon = faviconTemplate(_templateObject || (_templateObject = _taggedTemplateLiteral(["", ""])), button.innerText);
       console.log(newFavicon);
       linkForFavicon.setAttribute("href", "data:image/svg+xml,".concat(newFavicon));
       var copylinkTag = "<link rel=\"icon\" href=\"data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>".concat(button.innerText, "</text></svg>\" />");
-      copyToClipboard(copylinkTag);
+      copyToClipboard(copylinkTag, e.target);
     });
   });
 });
@@ -28217,10 +28217,10 @@ window.addEventListener('DOMContentLoaded', function () {
 
 var showToolTip = function showToolTip(targetEl) {
   var text = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'Copied!';
-  var toolTip = "<span class=\u201Ctutor-tooltip tooltip-wrap\u201D><span class=\u201Ctooltip-txt tooltip-top\u201D>".concat(text, "</span></span>");
+  var toolTip = "<span class=\"tooltip-text tooltip-top\">".concat(text, "</span>");
   targetEl.insertAdjacentHTML('afterbegin', toolTip);
   setTimeout(function () {
-    document.querySelector('.tutor-tooltip').remove();
+    document.querySelector('.tooltip-text').remove();
   }, 500);
 };
 /**
@@ -28230,14 +28230,14 @@ var showToolTip = function showToolTip(targetEl) {
 
 
 var copyToClipboard = /*#__PURE__*/function () {
-  var _ref2 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee(text) {
+  var _ref2 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee(text, target) {
     var clipboardTxt;
     return _regeneratorRuntime().wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
             if (!text) {
-              _context.next = 7;
+              _context.next = 9;
               break;
             }
 
@@ -28250,9 +28250,11 @@ var copyToClipboard = /*#__PURE__*/function () {
 
           case 5:
             clipboardTxt = _context.sent;
-            console.log(clipboardTxt); // showToolTip(e.target, 'Copied');
+            console.log(clipboardTxt);
+            console.log(target);
+            showToolTip(target, 'Copied');
 
-          case 7:
+          case 9:
           case "end":
             return _context.stop();
         }
@@ -28260,7 +28262,7 @@ var copyToClipboard = /*#__PURE__*/function () {
     }, _callee);
   }));
 
-  return function copyToClipboard(_x) {
+  return function copyToClipboard(_x, _x2) {
     return _ref2.apply(this, arguments);
   };
 }();
@@ -28310,7 +28312,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58924" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52879" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

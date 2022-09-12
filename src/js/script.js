@@ -86,14 +86,14 @@ window.addEventListener('DOMContentLoaded', () => {
 	const buttons = document.querySelectorAll(`.emoji-list span.emoji`);
 	// console.log(buttons);
 	buttons.forEach((button) => {
-		button.addEventListener('click', () => {
+		button.addEventListener('click', (e) => {
 			const newFavicon = faviconTemplate`${button.innerText}`;
 			console.log(newFavicon);
 			linkForFavicon.setAttribute(`href`, `data:image/svg+xml,${newFavicon}`);
 
 			const copylinkTag = `<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>${button.innerText}</text></svg>" />`;
 
-			copyToClipboard(copylinkTag);
+			copyToClipboard(copylinkTag, e.target);
 		});
 	});
 });
@@ -104,10 +104,10 @@ window.addEventListener('DOMContentLoaded', () => {
  * @param {*} text
  */
 const showToolTip = (targetEl, text = 'Copied!') => {
-	const toolTip = `<span class=“tutor-tooltip tooltip-wrap”><span class=“tooltip-txt tooltip-top”>${text}</span></span>`;
+	const toolTip = `<span class="tooltip-text tooltip-top">${text}</span>`;
 	targetEl.insertAdjacentHTML('afterbegin', toolTip);
 	setTimeout(() => {
-		document.querySelector('.tutor-tooltip').remove();
+		document.querySelector('.tooltip-text').remove();
 	}, 500);
 };
 
@@ -115,12 +115,13 @@ const showToolTip = (targetEl, text = 'Copied!') => {
  * copy to clipboard
  * @param {*} text
  */
-const copyToClipboard = async (text) => {
+const copyToClipboard = async (text, target) => {
 	if (text) {
 		await navigator.clipboard.writeText(text);
 		const clipboardTxt = await navigator.clipboard.readText();
 		console.log(clipboardTxt);
-		// showToolTip(e.target, 'Copied');
+		console.log(target);
+		showToolTip(target, 'Copied');
 	}
 };
 

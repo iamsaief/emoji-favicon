@@ -1,5 +1,6 @@
 @import '/node_modules/normalize.css/normalize.css';
 @import '/node_modules/bootstrap/dist/css/bootstrap.min.css';
+@import './tooltip';
 
 /* reset styles */
 * {
@@ -45,10 +46,11 @@ img {
 }
 
 .emoji-list {
-	span {
+	span.emoji {
 		font-size: 40px;
 		width: 48px;
 		height: 48px;
+		position: relative;
 	}
 
 	&.row {
