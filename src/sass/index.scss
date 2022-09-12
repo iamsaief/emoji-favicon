@@ -1,2 +1,87 @@
 @import '/node_modules/normalize.css/normalize.css';
 @import '/node_modules/bootstrap/dist/css/bootstrap.min.css';
+
+/* reset styles */
+* {
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	text-rendering: optimizeLegibility;
+
+	font-weight: 400;
+	font-size: 14px;
+	line-height: 1.71;
+}
+
+body {
+	font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', 'Noto Sans', 'Liberation Sans', Arial,
+		sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+}
+
+ul {
+	padding: 0;
+	list-style-type: none;
+}
+
+a {
+	text-decoration: none;
+}
+
+hr {
+	border: 0;
+	border-top: 1px dotted #efefef;
+}
+
+img {
+	max-width: 100%;
+}
+
+.emoji-list {
+	span {
+		font-size: 40px;
+		width: 48px;
+		height: 48px;
+	}
+
+	&.row {
+		.col {
+			border-radius: 5px;
+			cursor: pointer;
+			&:hover {
+				background: #dcdcdc;
+			}
+		}
+	}
+}
+
+.emoji-list-category {
+	h6 {
+		text-transform: capitalize;
+	}
+}
+
+footer {
+	background: #20232a;
+	color: #c5c5c5;
+	padding: 20px;
+	text-align: center;
+
+	a {
+		color: #c5c5c5;
+	}
+}
+
+.scroll-to-top-btn {
+	display: inline-flex;
+	position: absolute;
+	right: 20px;
+	cursor: pointer;
+}
