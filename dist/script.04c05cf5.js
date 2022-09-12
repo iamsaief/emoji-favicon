@@ -28143,7 +28143,6 @@ const fetchJSON = async () => {
 	const response = await fetch(`https://emoji-api.com/emojis?access_key=${apiKey}`);
 	const json = await response.json();
 
-	// JSON or Local data
 	return json;
 };
 
@@ -28182,7 +28181,8 @@ var renderEmojiList = function renderEmojiList(emojis) {
     }).join('')].join('');
   }).join('');
   emojiListWrapper.innerHTML = "".concat(html);
-};
+}; // Use local data
+
 
 renderEmojiList(_data.default);
 /**
@@ -28202,6 +28202,7 @@ window.addEventListener('DOMContentLoaded', function () {
   buttons.forEach(function (button) {
     button.addEventListener('click', function () {
       var newFavicon = faviconTemplate(_templateObject || (_templateObject = _taggedTemplateLiteral(["", ""])), button.innerText);
+      console.log(newFavicon);
       linkForFavicon.setAttribute("href", "data:image/svg+xml,".concat(newFavicon));
       var copylinkTag = "<link rel=\"icon\" href=\"data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>".concat(button.innerText, "</text></svg>\" />");
       copyToClipboard(copylinkTag);
@@ -28236,7 +28237,7 @@ var copyToClipboard = /*#__PURE__*/function () {
         switch (_context.prev = _context.next) {
           case 0:
             if (!text) {
-              _context.next = 6;
+              _context.next = 7;
               break;
             }
 
@@ -28249,8 +28250,9 @@ var copyToClipboard = /*#__PURE__*/function () {
 
           case 5:
             clipboardTxt = _context.sent;
+            console.log(clipboardTxt); // showToolTip(e.target, 'Copied');
 
-          case 6:
+          case 7:
           case "end":
             return _context.stop();
         }
@@ -28308,7 +28310,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60462" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58924" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

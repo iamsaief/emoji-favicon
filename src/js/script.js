@@ -9,7 +9,6 @@ const fetchJSON = async () => {
 	const response = await fetch(`https://emoji-api.com/emojis?access_key=${apiKey}`);
 	const json = await response.json();
 
-	// JSON or Local data
 	return json;
 };
 
@@ -62,6 +61,8 @@ const renderEmojiList = (emojis) => {
 
 	emojiListWrapper.innerHTML = `${html}`;
 };
+
+// Use local data
 renderEmojiList(data);
 
 /**
@@ -87,6 +88,7 @@ window.addEventListener('DOMContentLoaded', () => {
 	buttons.forEach((button) => {
 		button.addEventListener('click', () => {
 			const newFavicon = faviconTemplate`${button.innerText}`;
+			console.log(newFavicon);
 			linkForFavicon.setAttribute(`href`, `data:image/svg+xml,${newFavicon}`);
 
 			const copylinkTag = `<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>${button.innerText}</text></svg>" />`;
@@ -117,7 +119,7 @@ const copyToClipboard = async (text) => {
 	if (text) {
 		await navigator.clipboard.writeText(text);
 		const clipboardTxt = await navigator.clipboard.readText();
-		// console.log(clipboardTxt);
+		console.log(clipboardTxt);
 		// showToolTip(e.target, 'Copied');
 	}
 };
