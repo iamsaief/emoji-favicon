@@ -4,10 +4,12 @@
 	"main": "index.js",
 	"license": "MIT",
 	"scripts": {
-		"start": "parcel ./*.html --open",
-		"build": "parcel build index.html",
-		"predeploy": "rm -rf dist && parcel build ./*.html --public-url https://github.com/iamsaief/emoji-favicon",
-		"deploy": "gh-pages -d dist"
+		"start": "parcel ./*.html",
+		"prebuild-dev": "shx rm -rf dist/*",
+		"build-dev": "parcel build ./*.html --no-minify --public-url ./",
+		"prebuild": "shx rm -rf dist/*",
+		"build": "parcel build ./*.html --public-url ./",
+		"push-gh-pages": "push-dir --dir=dist --branch=gh-pages --cleanup --verbose"
 	},
 	"dependencies": {
 		"bootstrap": "^5.2.1",
@@ -17,6 +19,7 @@
 	},
 	"devDependencies": {
 		"dotenv": "^16.0.2",
-		"sass": "^1.54.9"
+		"sass": "^1.54.9",
+		"shx": "^0.3.2"
 	}
 }
