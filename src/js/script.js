@@ -120,7 +120,6 @@ const copyToClipboard = async (text, target) => {
 		await navigator.clipboard.writeText(text);
 		const clipboardTxt = await navigator.clipboard.readText();
 		console.log(clipboardTxt);
-		console.log(target);
 		showToolTip(target, 'Copied');
 	}
 };

@@ -28237,7 +28237,7 @@ var copyToClipboard = /*#__PURE__*/function () {
         switch (_context.prev = _context.next) {
           case 0:
             if (!text) {
-              _context.next = 9;
+              _context.next = 8;
               break;
             }
 
@@ -28251,10 +28251,9 @@ var copyToClipboard = /*#__PURE__*/function () {
           case 5:
             clipboardTxt = _context.sent;
             console.log(clipboardTxt);
-            console.log(target);
             showToolTip(target, 'Copied');
 
-          case 9:
+          case 8:
           case "end":
             return _context.stop();
         }
@@ -28312,7 +28311,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64818" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63386" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

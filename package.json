@@ -4,15 +4,19 @@
 	"main": "index.js",
 	"license": "MIT",
 	"scripts": {
-		"start": "parcel index.html --open",
-		"build": "parcel build index.html"
+		"start": "parcel ./*.html --open",
+		"build": "parcel build index.html",
+		"predeploy": "rm -rf dist && parcel build ./*.html --public-url https://github.com/iamsaief/emoji-favicon",
+		"deploy": "gh-pages -d dist"
 	},
 	"dependencies": {
 		"bootstrap": "^5.2.1",
+		"gh-pages": "^4.0.0",
 		"normalize.css": "^8.0.1",
 		"parcel-bundler": "^1.12.5"
 	},
 	"devDependencies": {
-		"dotenv": "^16.0.2"
+		"dotenv": "^16.0.2",
+		"sass": "^1.54.9"
 	}
 }
